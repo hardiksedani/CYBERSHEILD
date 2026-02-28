@@ -1,0 +1,625 @@
+<!-- COLOR_PALETTE.html - Visual Reference for Security Sidebar Theme -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Sidebar - Color Palette Reference</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+      color: #e4e6eb;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px;
+      background: linear-gradient(135deg, #00d9ff 0%, #39ff14 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #00d9ff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .color-card {
+      background: rgba(26, 31, 46, 0.8);
+      border: 1px solid rgba(0, 217, 255, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 250ms ease;
+    }
+
+    .color-card:hover {
+      border-color: #00d9ff;
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .color-swatch {
+      height: 120px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 250ms ease;
+    }
+
+    .color-info {
+      padding: 16px;
+    }
+
+    .color-name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .color-code {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #a0a9ba;
+      margin-bottom: 4px;
+    }
+
+    .color-description {
+      font-size: 11px;
+      color: #6b7684;
+      line-height: 1.4;
+    }
+
+    .usage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .usage-card {
+      background: rgba(26, 31, 46, 0.8);
+      border: 1px solid rgba(0, 217, 255, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .usage-card h3 {
+      color: #00d9ff;
+      margin-bottom: 12px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .usage-card p {
+      font-size: 13px;
+      color: #a0a9ba;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .usage-card code {
+      display: block;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 8px;
+      border-left: 2px solid #00d9ff;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #39ff14;
+      margin-top: 8px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .comparison-item {
+      background: rgba(26, 31, 46, 0.8);
+      border: 1px solid rgba(0, 217, 255, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .comparison-item h3 {
+      color: #00d9ff;
+      margin-bottom: 12px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .comparison-item p {
+      font-size: 13px;
+      color: #a0a9ba;
+      line-height: 1.6;
+    }
+
+    .demo-button {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-right: 10px;
+      margin-top: 12px;
+      transition: all 250ms ease;
+    }
+
+    .demo-button-cyan {
+      background: linear-gradient(135deg, #00d9ff 0%, #00a8d8 100%);
+      color: #000;
+      box-shadow: 0 0 16px rgba(0, 217, 255, 0.3);
+    }
+
+    .demo-button-cyan:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 24px rgba(0, 217, 255, 0.5);
+    }
+
+    .demo-button-green {
+      background: linear-gradient(135deg, #39ff14 0%, #2ab30f 100%);
+      color: #000;
+      box-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
+    }
+
+    .demo-button-green:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(57, 255, 20, 0.6);
+    }
+
+    .demo-button-pink {
+      background: linear-gradient(135deg, #ff006e 0%, #e80057 100%);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(255, 0, 110, 0.3);
+    }
+
+    .demo-button-pink:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 24px rgba(255, 0, 110, 0.5);
+    }
+
+    .accessibility {
+      background: rgba(26, 31, 46, 0.8);
+      border: 1px solid rgba(0, 217, 255, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .accessibility h3 {
+      color: #00d9ff;
+      margin-bottom: 12px;
+    }
+
+    .accessibility ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .accessibility li {
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+      color: #a0a9ba;
+      font-size: 13px;
+    }
+
+    .accessibility li:before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #39ff14;
+      font-weight: bold;
+    }
+
+    .note {
+      background: rgba(255, 0, 110, 0.1);
+      border-left: 2px solid #ff006e;
+      padding: 12px;
+      border-radius: 4px;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #a0a9ba;
+    }
+
+    @media (max-width: 768px) {
+      .color-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .usage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Security Sidebar Color Palette</h1>
+
+    <!-- Primary Neon Colors -->
+    <div class="section">
+      <h2>Primary Neon Accents</h2>
+
+      <div class="color-grid">
+        <!-- Cyan -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: linear-gradient(135deg, #00d9ff 0%, #00a8d8 100%); color: #000;">
+            Neon Cyan
+          </div>
+          <div class="color-info">
+            <div class="color-name">Neon Cyan</div>
+            <div class="color-code">#00d9ff</div>
+            <div class="color-description">Primary accent for buttons, hovers, focus states, and UI highlights</div>
+          </div>
+        </div>
+
+        <!-- Green -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: linear-gradient(135deg, #39ff14 0%, #2ab30f 100%); color: #000;">
+            Neon Green
+          </div>
+          <div class="color-info">
+            <div class="color-name">Neon Green</div>
+            <div class="color-code">#39ff14</div>
+            <div class="color-description">Success indicator, FREE badge, positive states</div>
+          </div>
+        </div>
+
+        <!-- Pink -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: linear-gradient(135deg, #ff006e 0%, #e80057 100%); color: #fff;">
+            Neon Pink
+          </div>
+          <div class="color-info">
+            <div class="color-name">Neon Pink</div>
+            <div class="color-code">#ff006e</div>
+            <div class="color-description">Premium/upgrade section, warning states, CTAs</div>
+          </div>
+        </div>
+
+        <!-- Purple -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: #b537f2; color: #fff;">
+            Neon Purple
+          </div>
+          <div class="color-info">
+            <div class="color-name">Neon Purple</div>
+            <div class="color-code">#b537f2</div>
+            <div class="color-description">Secondary accent, upgrade card background</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dark Theme Colors -->
+    <div class="section">
+      <h2>Dark Theme Background Colors</h2>
+
+      <div class="color-grid">
+        <!-- Dark BG -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: #0f1419; color: #fff;">
+            Dark BG
+          </div>
+          <div class="color-info">
+            <div class="color-name">Sidebar Background</div>
+            <div class="color-code">#0f1419</div>
+            <div class="color-description">Main sidebar background color</div>
+          </div>
+        </div>
+
+        <!-- Light BG -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: #1a1f2e; color: #fff;">
+            Light BG
+          </div>
+          <div class="color-info">
+            <div class="color-name">Card Background</div>
+            <div class="color-code">#1a1f2e</div>
+            <div class="color-description">Section cards and lifted surfaces</div>
+          </div>
+        </div>
+
+        <!-- Border -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: #2a3142; color: #fff;">
+            Border
+          </div>
+          <div class="color-info">
+            <div class="color-name">Border Color</div>
+            <div class="color-code">#2a3142</div>
+            <div class="color-description">Dividers and subtle borders</div>
+          </div>
+        </div>
+
+        <!-- Dark Cyan -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: #0098b2; color: #fff;">
+            Dark Cyan
+          </div>
+          <div class="color-info">
+            <div class="color-name">Cyan Dark</div>
+            <div class="color-code">#0098b2</div>
+            <div class="color-description">Scrollbar, darker accent variant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text Colors -->
+    <div class="section">
+      <h2>Text & Typography Colors</h2>
+
+      <div class="color-grid">
+        <!-- Primary Text -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: #1a1f2e; display: flex; align-items: center; justify-content: center; font-size: 16px;" color="#e4e6eb">
+            Primary Text
+          </div>
+          <div class="color-info">
+            <div class="color-name">Primary Text</div>
+            <div class="color-code">#e4e6eb</div>
+            <div class="color-description">Main heading and body text</div>
+          </div>
+        </div>
+
+        <!-- Secondary Text -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: #1a1f2e; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #a0a9ba;">
+            Secondary Text
+          </div>
+          <div class="color-info">
+            <div class="color-name">Secondary Text</div>
+            <div class="color-code">#a0a9ba</div>
+            <div class="color-description">Labels and subheadings</div>
+          </div>
+        </div>
+
+        <!-- Muted Text -->
+        <div class="color-card">
+          <div class="color-swatch" style="background: #1a1f2e; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #6b7684;">
+            Muted Text
+          </div>
+          <div class="color-info">
+            <div class="color-name">Muted Text</div>
+            <div class="color-code">#6b7684</div>
+            <div class="color-description">Placeholder text and hints</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Component Usage -->
+    <div class="section">
+      <h2>Color Usage in Components</h2>
+
+      <div class="usage-grid">
+        <div class="usage-card">
+          <h3>URL Scanner Section</h3>
+          <p>Input focus and border:</p>
+          <code>--neon-cyan</code>
+          <p style="margin-top: 12px;">Scan button gradient:</p>
+          <code>linear-gradient(135deg, --neon-cyan, #00a8d8)</code>
+          <p style="margin-top: 12px;">Box shadow (glow):</p>
+          <code>0 0 20px rgba(0, 217, 255, 0.4)</code>
+          <p style="margin-top: 12px;">FREE badge:</p>
+          <code>--neon-green</code>
+        </div>
+
+        <div class="usage-card">
+          <h3>Scan Capabilities</h3>
+          <p>Item background on hover:</p>
+          <code>rgba(0, 217, 255, 0.1)</code>
+          <p style="margin-top: 12px;">Icon color:</p>
+          <code>--neon-cyan</code>
+          <p style="margin-top: 12px;">Icon glow on hover:</p>
+          <code>drop-shadow(0 0 6px --neon-cyan)</code>
+          <p style="margin-top: 12px;">Text color:</p>
+          <code>--text-primary</code>
+        </div>
+
+        <div class="usage-card">
+          <h3>Quick Actions</h3>
+          <p>Button border on hover:</p>
+          <code>--neon-cyan</code>
+          <p style="margin-top: 12px;">Active button background:</p>
+          <code>rgba(0, 217, 255, 0.2)</code>
+          <p style="margin-top: 12px;">Icon scale on hover:</p>
+          <code>scale(1.1)</code>
+          <p style="margin-top: 12px;">Glow effect:</p>
+          <code>0 0 16px rgba(0, 217, 255, 0.3)</code>
+        </div>
+
+        <div class="usage-card">
+          <h3>Upgrade Card</h3>
+          <p>Card gradient background:</p>
+          <code>linear-gradient(135deg, rgba(181, 55, 242, 0.15), ...)</code>
+          <p style="margin-top: 12px;">Border color:</p>
+          <code>rgba(255, 0, 110, 0.3)</code>
+          <p style="margin-top: 12px;">Upgrade button:</p>
+          <code>linear-gradient(135deg, --neon-pink, #e80057)</code>
+          <p style="margin-top: 12px;">Crown icon glow:</p>
+          <code>drop-shadow(0 0 8px rgba(255, 0, 110, 0.4))</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Demo -->
+    <div class="section">
+      <h2>Interactive Button Demonstrations</h2>
+
+      <div style="padding: 20px; background: rgba(26, 31, 46, 0.8); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 10px;">
+        <p style="margin-bottom: 16px; color: #a0a9ba;">Hover over buttons to see live effects:</p>
+
+        <div>
+          <h3 style="color: #00d9ff; font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+            Cyan Primary (SCAN Button)
+          </h3>
+          <button class="demo-button demo-button-cyan">⚡ Scan</button>
+          <button class="demo-button demo-button-cyan">History</button>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <h3 style="color: #39ff14; font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+            Green Success (FREE Badge)
+          </h3>
+          <button class="demo-button demo-button-green">✓ Free Feature</button>
+        </div>
+
+        <div style="margin-top: 20px;">
+          <h3 style="color: #ff006e; font-size: 12px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+            Pink Premium (Upgrade Button)
+          </h3>
+          <button class="demo-button demo-button-pink">⭐ Upgrade Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accessibility -->
+    <div class="section">
+      <div class="accessibility">
+        <h3>Accessibility & Contrast</h3>
+        <ul>
+          <li>Primary text (#e4e6eb) on dark (#0f1419): 13.5:1 ratio (AAA)</li>
+          <li>Secondary text (#a0a9ba) on dark (#0f1419): 8.2:1 ratio (AAA)</li>
+          <li>Neon colors supplemented with text styling (not color-alone)</li>
+          <li>Focus outlines use high-contrast cyan (#00d9ff)</li>
+          <li>Hover states provide visual feedback without color-only indicators</li>
+          <li>All interactive elements have visible focus styles</li>
+        </ul>
+        <div class="note">
+          Note: While neon colors create visual interest, all UI states are distinguishable through multiple channels (color, shape, text, animation).
+        </div>
+      </div>
+    </div>
+
+    <!-- CSS Variables Reference -->
+    <div class="section">
+      <h2>CSS Variables Quick Reference</h2>
+
+      <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(0, 217, 255, 0.2); border-radius: 10px; padding: 20px; font-family: 'Courier New', monospace; font-size: 12px; color: #39ff14; overflow-x: auto;">
+        <pre style="margin: 0;">:root {
+  /* Dark Theme Colors */
+  --sidebar-bg: #0f1419;
+  --sidebar-bg-light: #1a1f2e;
+  --sidebar-border: #2a3142;
+  
+  /* Text Colors */
+  --text-primary: #e4e6eb;
+  --text-secondary: #a0a9ba;
+  --text-muted: #6b7684;
+
+  /* Neon Accent Colors */
+  --neon-cyan: #00d9ff;
+  --neon-cyan-dark: #0098b2;
+  --neon-green: #39ff14;
+  --neon-green-dark: #2ab30f;
+  --neon-pink: #ff006e;
+  --neon-pink-dark: #c20050;
+  --neon-purple: #b537f2;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-smooth: 250ms ease;
+}</pre>
+      </div>
+    </div>
+
+    <!-- Design Rationale -->
+    <div class="section">
+      <h2>Design Rationale</h2>
+
+      <div class="comparison">
+        <div class="comparison-item">
+          <h3>Why Dark Theme?</h3>
+          <p>
+            Dark themes reduce eye strain during extended security analysis sessions and are standard in
+            professional security tools (Burp Suite, OWASP ZAP). The dark background (#0f1419) provides excellent contrast for
+            text and reduces blue light emission.
+          </p>
+        </div>
+
+        <div class="comparison-item">
+          <h3>Why Neon Accents?</h3>
+          <p>
+            High-contrast neon colors (cyan, green, pink) immediately draw attention to critical UI elements and actions.
+            This is familiar to security professionals from tools like Metasploit and creates a sense of professional
+            authority and technical competence.
+          </p>
+        </div>
+
+        <div class="comparison-item">
+          <h3>Why Cyan Primary?</h3>
+          <p>
+            Cyan is universally recognized as a cybersecurity/tech color, suggests scanning/analysis, and provides excellent
+            contrast against dark backgrounds. It's non-aggressive and readable for extended viewing periods.
+          </p>
+        </div>
+
+        <div class="comparison-item">
+          <h3>Why Green for Success?</h3>
+          <p>
+            Green is the universal indicator for safety, success, and completion. Using it for the FREE badge and success
+            states is intuitive and requires no learning curve for users.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(0, 217, 255, 0.2); text-align: center; color: #6b7684;">
+      <p>Security Sidebar Color Palette Reference</p>
+      <p style="margin-top: 8px; font-size: 12px;">All colors are customizable via CSS variables in SecuritySidebar.css</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,328 @@
+/* ========== UPGRADE MODAL OVERLAY ========== */
+.upgrade-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* ========== UPGRADE MODAL ========== */
+.upgrade-modal {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a0a2e 50%, #16213e 100%);
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #00d4ff, #ff006e, #00d4ff) 1;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 60px rgba(0, 212, 255, 0.3),
+    0 0 100px rgba(255, 0, 110, 0.2),
+    inset 0 0 30px rgba(0, 212, 255, 0.1);
+  animation: modalGlow 3s ease-in-out infinite;
+}
+
+@keyframes modalGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 60px rgba(0, 212, 255, 0.3),
+      0 0 100px rgba(255, 0, 110, 0.2),
+      inset 0 0 30px rgba(0, 212, 255, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 80px rgba(0, 212, 255, 0.4),
+      0 0 120px rgba(255, 0, 110, 0.3),
+      inset 0 0 40px rgba(0, 212, 255, 0.15);
+  }
+}
+
+/* ========== CLOSE BUTTON ========== */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 0, 110, 0.2);
+  border: 1px solid #ff006e;
+  border-radius: 50%;
+  color: #ff006e;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: rgba(255, 0, 110, 0.4);
+  transform: rotate(90deg);
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+}
+
+/* ========== MODAL HEADER ========== */
+.modal-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.crown-icon {
+  display: inline-block;
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.modal-header h1 {
+  color: transparent;
+  background: linear-gradient(135deg, #00d4ff, #ff006e, #00e676);
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.subtitle {
+  color: #00d4ff;
+  font-size: 14px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+/* ========== FEATURES GRID ========== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.feature-card {
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-icon {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.feature-card h3 {
+  color: #ffffff;
+  font-size: 12px;
+  margin: 5px 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.feature-card p {
+  color: #00d4ff;
+  font-size: 11px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ========== LICENSE SECTION ========== */
+.license-section {
+  margin-bottom: 30px;
+}
+
+.license-section h2 {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* ========== PRICING LAYOUT ========== */
+.pricing-box {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 110, 0.05));
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.pricing-box h2 {
+  font-size: 42px;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.billing-cycle {
+  font-size: 16px;
+  color: #00d4ff;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.pricing-desc {
+  color: #8b949e;
+  font-size: 14px;
+  margin: 0;
+}
+
+.secure-checkout-badge {
+  text-align: center;
+  color: #3fb950;
+  font-size: 12px;
+  margin-top: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ========== UNLOCK BUTTON ========== */
+.unlock-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #00d4ff, #ff006e);
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.4), 0 0 60px rgba(255, 0, 110, 0.2);
+}
+
+.unlock-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 80px rgba(255, 0, 110, 0.3);
+}
+
+.unlock-btn:active {
+  transform: translateY(0);
+}
+
+.btn-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.unlock-btn:hover .btn-glow {
+  opacity: 1;
+  animation: shimmer 0.6s ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+
+  100% {
+    transform: translateX(100%) translateY(100%);
+  }
+}
+
+/* ========== MODAL FOOTER ========== */
+.modal-footer {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.modal-footer p {
+  color: rgba(0, 212, 255, 0.6);
+  font-size: 12px;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  .upgrade-modal {
+    padding: 25px;
+    margin: 20px;
+  }
+
+  .modal-header h1 {
+    font-size: 24px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .feature-card h3 {
+    font-size: 11px;
+  }
+
+  .unlock-btn {
+    padding: 12px;
+    font-size: 12px;
+  }
+}

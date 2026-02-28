@@ -1,0 +1,321 @@
+.custom-rules-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 15, 0.85);
+  /* Darker backdrop */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+.custom-rules-modal {
+  background: rgba(16, 27, 34, 0.95);
+  border: 1px solid rgba(0, 212, 212, 0.2);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 212, 0.1);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-rules-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-rules-modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.custom-rules-modal::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 212, 0.2);
+  border-radius: 4px;
+}
+
+.modal-header {
+  padding: 24px 30px;
+  border-bottom: 1px solid rgba(0, 212, 212, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: linear-gradient(180deg, rgba(0, 212, 212, 0.05) 0%, transparent 100%);
+}
+
+.header-title h2 {
+  margin: 0 0 6px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #00d4d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-title p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 68, 68, 0.15);
+  border-color: rgba(255, 68, 68, 0.5);
+  color: #ff4444;
+}
+
+.modal-content {
+  padding: 30px;
+  flex: 1;
+}
+
+.add-rule-section {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 30px;
+}
+
+.add-rule-section h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #00d4d4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-rule-section input,
+.add-rule-section select,
+.add-rule-section textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.add-rule-section input:focus,
+.add-rule-section select:focus,
+.add-rule-section textarea:focus {
+  outline: none;
+  border-color: #00d4d4;
+  background: rgba(0, 212, 212, 0.05);
+  box-shadow: 0 0 15px rgba(0, 212, 212, 0.1);
+}
+
+.add-rule-section textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Options specific styling */
+.add-rule-section select option {
+  background: #161b22;
+  color: #fff;
+  padding: 10px;
+}
+
+.btn-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #00d4d4 0%, #0099ff 100%);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 212, 212, 0.3);
+}
+
+.btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 212, 212, 0.4);
+}
+
+.btn-add:active {
+  transform: translateY(0);
+}
+
+.rules-list {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.rules-list h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #00d4d4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rule-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.rule-item:last-child {
+  margin-bottom: 0;
+}
+
+.rule-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 212, 212, 0.2);
+}
+
+.rule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.rule-info h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rule-severity {
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.rule-severity.critical {
+  background: rgba(255, 68, 68, 0.15);
+  color: #ff4444;
+  border: 1px solid rgba(255, 68, 68, 0.3);
+}
+
+.rule-severity.high {
+  background: rgba(255, 136, 0, 0.15);
+  color: #ff8800;
+  border: 1px solid rgba(255, 136, 0, 0.3);
+}
+
+.rule-severity.medium {
+  background: rgba(255, 187, 0, 0.15);
+  color: #ffbb00;
+  border: 1px solid rgba(255, 187, 0, 0.3);
+}
+
+.rule-severity.low {
+  background: rgba(0, 204, 255, 0.15);
+  color: #00ccff;
+  border: 1px solid rgba(0, 204, 255, 0.3);
+}
+
+.rule-type {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: monospace;
+}
+
+.btn-delete-rule {
+  background: rgba(255, 68, 68, 0.1);
+  color: #ff4444;
+  border: 1px solid rgba(255, 68, 68, 0.3);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-delete-rule:hover {
+  background: #ff4444;
+  color: #fff;
+}
+
+.rule-body {
+  margin-top: 10px;
+}
+
+.rule-pattern {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: monospace;
+  color: #00d4d4;
+  margin: 0 0 10px 0;
+  word-break: break-all;
+}
+
+.rule-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+/* Empty State */
+.empty-rules {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.empty-rules p {
+  margin: 10px 0 0 0;
+  font-size: 0.95rem;
+}

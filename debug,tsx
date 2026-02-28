@@ -1,0 +1,48 @@
+const https = require('https');
+const http = require('http');
+
+// Simple delay helper
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// The Scanner Logic (Simplified)
+async function makeRequest(url) {
+    return new Promise((resolve) => {
+        const client = url.startsWith('https') ? https : http;
+        const req = client.get(url, { headers: { 'Connection': 'close' } }, (res) => {
+            let data = '';
+            res.on('data', c => data += c);
+            res.on('end', () => resolve(data));
+        });
+        req.on('error', (e) => resolve('')); // Ignore errors
+    });
+}
+
+async function testScan() {
+    console.log("--- STARTING DEBUG SCAN ---");
+    const target = "http://testphp.vulnweb.com/search.php?test=query";
+    const payload = "<script>alert(1)</script>";
+    
+    console.log(`Target: ${target}`);
+    console.log(`Payload: ${payload}`);
+
+    // Create attack URL
+    const urlObj = new URL(target);
+    urlObj.searchParams.set('test', payload);
+    const attackUrl = urlObj.toString();
+
+    console.log("Sending request...");
+    await delay(1000); // 1 second delay
+
+    const body = await makeRequest(attackUrl);
+    
+    if (body.includes(payload)) {
+        console.log("✅ SUCCESS: Vulnerability Detected!");
+        console.log("Your network and logic are working fine.");
+    } else {
+        console.log("❌ FAILURE: Payload NOT found in response.");
+        console.log("Response length: " + body.length);
+        if (body.length === 0) console.log("The server returned an empty response (Blocked?).");
+    }
+}
+
+testScan();
